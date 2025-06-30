@@ -19,6 +19,7 @@ def cargar_config():
     if not CONFIG_ENC_FILE.exists():
         if CONFIG_RAW_FILE.exists():
             cifrar_config_archivo(CONFIG_RAW_FILE, CONFIG_ENC_FILE)
+            CONFIG_RAW_FILE.unlink(missing_ok=True)
         else:
             default_usuario, default_contrasena = _get_default_client_credentials()
             default_config_data = {
@@ -29,6 +30,7 @@ def cargar_config():
             with open(CONFIG_RAW_FILE, "w", encoding="utf-8") as f:
                 json.dump(default_config_data, f, indent=2)
             cifrar_config_archivo(CONFIG_RAW_FILE, CONFIG_ENC_FILE)
+            CONFIG_RAW_FILE.unlink(missing_ok=True)
     config_data = descifrar_config_archivo(CONFIG_ENC_FILE)
     if not config_data:
         raise Exception("Fallo al cargar o descifrar la configuración. Archivo corrupto o clave incorrecta.")
