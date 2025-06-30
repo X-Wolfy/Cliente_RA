@@ -1,0 +1,35 @@
+# Archivos de entorno y secretos
+.env
+*.env*
+
+# Archivos de configuración y tokens cifrados
+config.json.enc
+tokens.json.enc
+registros_pendientes/ # Toda la carpeta de pendientes
+
+# Entornos virtuales
+venv/
+.venv/
+env/
+*.pyc
+__pycache__/
+
+# Logs
+*.log
+logs/
+
+# Build artifacts
+build/
+dist/
+__pyinstaller__/
+*.spec
+
+# IDE specific files
+.idea/ # PyCharm
+.vscode/ # VS Code
+*.sublime-project
+*.sublime-workspace
+
+# Otros archivos generados
+.DS_Store # macOS
+Thumbs.db # Windows
